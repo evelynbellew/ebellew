@@ -36,39 +36,57 @@
     }
     a:hover { text-decoration: underline; }
 
-    /* ── Layout wrapper ── */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
+    /* ── Page layout: fixed left sidebar + scrolling main ── */
+    body {
+      padding: 0;
+      display: flex;
+      min-height: 100vh;
     }
 
-    /* ── Header / intro ── */
-    .site-header {
-      margin-bottom: 1.5rem;
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 2.5rem 1.5rem 2rem;
+      border-right: 1px solid var(--color-rule);
+      display: flex;
+      flex-direction: column;
     }
 
-    .site-header h1 {
-      font-size: 1.5rem;
+    .sidebar h1 {
+      font-size: 1.1rem;
       font-weight: bold;
       font-family: var(--font-body);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
     }
 
-    .site-header .affiliation {
-      font-size: 0.95rem;
+    .sidebar .affiliation {
+      font-size: 0.78rem;
       color: var(--color-muted);
       font-family: var(--font-ui);
-      margin-bottom: 0.15rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
     }
 
     /* ── Nav links ── */
     .site-nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem 1rem;
-      margin: 1.25rem 0;
+      flex-direction: column;
+      gap: 0.5rem;
       font-family: var(--font-ui);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    /* ── Main content area ── */
+    .main-content {
+      margin-left: 200px;
+      flex: 1;
+      max-width: 700px;
+      padding: 2.5rem 2.5rem 5rem;
     }
 
     /* ── Profile photo + bio layout ── */
@@ -191,36 +209,47 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 560px) {
+    @media (max-width: 660px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--color-rule);
+        padding: 1.5rem 1.25rem 1rem;
+      }
+      .site-nav { flex-direction: row; flex-wrap: wrap; gap: 0.25rem 0.75rem; }
+      .main-content { margin-left: 0; padding: 1.5rem 1.25rem 4rem; }
       .intro { flex-direction: column-reverse; }
       .profile-photo { width: 100px; }
-      body { padding: 1.5rem 1rem 4rem; }
     }
   </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- ═══ HEADER ═══ -->
-  <header class="site-header">
+  <!-- ═══ FIXED LEFT SIDEBAR ═══ -->
+  <aside class="sidebar">
     <h1><a href="/">Your Name</a></h1>
     <p class="affiliation">
-      Associate Professor · Department of Sociology · University Name ·
-      <a href="mailto:you@university.edu">you@university.edu</a> · Office 000
+      Associate Professor<br>
+      Department of Sociology<br>
+      University Name<br>
+      <a href="mailto:you@university.edu">you@university.edu</a><br>
+      Office 000
     </p>
-  </header>
+    <nav class="site-nav">
+      <a href="YourName_CV.pdf">CV</a>
+      <a href="#publications">Publications</a>
+      <a href="#workinprogress">Work in Progress</a>
+      <a href="#data">Data and Code</a>
+      <a href="#raships">Research Assistance</a>
+      <a href="https://scholar.google.com/">Google Scholar</a>
+    </nav>
+  </aside>
 
-  <!-- ═══ NAV ═══ -->
-  <nav class="site-nav">
-    <a href="YourName_CV.pdf">CV</a>
-    <a href="#publications">Publications</a>
-    <a href="#workinprogress">Work in Progress</a>
-    <a href="#data">Data and Code</a>
-    <a href="#raships">Research Assistance</a>
-    <a href="https://scholar.google.com/">Google Scholar</a>
-  </nav>
-
-  <hr>
+  <!-- ═══ SCROLLABLE MAIN CONTENT ═══ -->
+  <main class="main-content">
 
   <!-- ═══ INTRO / BIO ═══ -->
   <div class="intro">
@@ -414,6 +443,6 @@
     <p>Website design adapted from <a href="https://www.nathanwilmers.com">nathanwilmers.com</a>.</p>
   </footer>
 
-</div>
+  </main>
 </body>
 </html>
