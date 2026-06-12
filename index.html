@@ -1,9 +1,419 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-body: Georgia, 'Times New Roman', serif;
+      --font-ui:   -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --color-text:    #111;
+      --color-muted:   #555;
+      --color-link:    #1a0dab;
+      --color-rule:    #ccc;
+      --color-bg:      #fff;
+      --max-width:     680px;
+      --side-pad:      2rem;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.65;
+      padding: 3rem var(--side-pad) 5rem;
+    }
+
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout wrapper ── */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* ── Header / intro ── */
+    .site-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .site-header h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: var(--font-body);
+      margin-bottom: 0.25rem;
+    }
+
+    .site-header .affiliation {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+      font-family: var(--font-ui);
+      margin-bottom: 0.15rem;
+    }
+
+    /* ── Nav links ── */
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      margin: 1.25rem 0;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+    }
+
+    /* ── Profile photo + bio layout ── */
+    .intro {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-bio {
+      flex: 1;
+      font-size: 0.95rem;
+    }
+
+    .intro-bio p { margin-bottom: 0.75rem; }
+
+    .intro-bio .cv-link {
+      font-weight: bold;
+    }
+
+    .profile-photo {
+      flex-shrink: 0;
+      width: 130px;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── Horizontal rule ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--color-rule);
+      margin: 1.75rem 0;
+    }
+
+    /* ── Section headings ── */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-family: var(--font-body);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Work in progress / publications items ── */
+    .paper {
+      margin-bottom: 2rem;
+    }
+
+    .paper-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+    }
+
+    .paper-coauthors {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      font-style: italic;
+      margin-bottom: 0.35rem;
+    }
+
+    .paper-venue {
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .paper-abstract {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .paper-abstract summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      margin-bottom: 0.4rem;
+      list-style: none;
+    }
+    .paper-abstract summary::before { content: "▸ "; }
+    .paper-abstract[open] summary::before { content: "▾ "; }
+
+    .paper-abstract p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .paper-links {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 0.75rem;
+    }
+
+    .paper-awards {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── Data section prose ── */
+    .prose {
+      font-size: 0.93rem;
+    }
+    .prose p { margin-bottom: 0.9rem; }
+
+    /* ── Footer ── */
+    .site-footer {
+      margin-top: 3rem;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .intro { flex-direction: column-reverse; }
+      .profile-photo { width: 100px; }
+      body { padding: 1.5rem 1rem 4rem; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to my website!</h1>
+<div class="container">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header">
+    <h1><a href="/">Your Name</a></h1>
+    <p class="affiliation">
+      Associate Professor · Department of Sociology · University Name ·
+      <a href="mailto:you@university.edu">you@university.edu</a> · Office 000
+    </p>
+  </header>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="site-nav">
+    <a href="YourName_CV.pdf">CV</a>
+    <a href="#publications">Publications</a>
+    <a href="#workinprogress">Work in Progress</a>
+    <a href="#data">Data and Code</a>
+    <a href="#raships">Research Assistance</a>
+    <a href="https://scholar.google.com/">Google Scholar</a>
+  </nav>
+
+  <hr>
+
+  <!-- ═══ INTRO / BIO ═══ -->
+  <div class="intro">
+    <div class="intro-bio">
+      <p>
+        I am [title and position]. My research focuses on [your research focus and questions].
+        I am affiliated with [relevant research centers or programs].
+      </p>
+      <p>
+        My work has appeared in
+        <em><a href="#">Journal Name</a></em>,
+        <em><a href="#">Journal Name</a></em>, and
+        <em><a href="#">Journal Name</a></em>.
+        It has been covered in
+        <a href="#">The New York Times</a>,
+        <a href="#">The Washington Post</a>, and
+        <a href="#">NPR</a>.
+      </p>
+      <p><a class="cv-link" href="YourName_CV.pdf">Curriculum Vitae</a></p>
+    </div>
+    <div class="profile-photo">
+      <!-- Replace with your actual photo filename -->
+      <img src="photo.jpg" alt="Photo of Your Name" />
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ═══ WORK IN PROGRESS ═══ -->
+  <section id="workinprogress">
+    <h2 class="section-title">Work in Progress</h2>
+
+    <!-- Paper 1 -->
+    <div class="paper">
+      <p class="paper-title"><a href="#">Paper Title Here</a></p>
+      <p class="paper-coauthors">(with <a href="#">Coauthor Name</a> and <a href="#">Coauthor Name</a>)</p>
+      <details class="paper-abstract">
+        <summary>Abstract</summary>
+        <p>
+          Your abstract goes here. Describe the research question, methods, and main findings
+          in a few concise paragraphs.
+        </p>
+      </details>
+      <div class="paper-links">
+        <a href="#">Ungated Preprint</a>
+        <a href="#">Data and Code</a>
+      </div>
+    </div>
+
+    <!-- Paper 2 -->
+    <div class="paper">
+      <p class="paper-title">Paper Title Here (No link yet)</p>
+      <p class="paper-coauthors">(with <a href="#">Coauthor Name</a>)</p>
+      <details class="paper-abstract">
+        <summary>Abstract</summary>
+        <p>
+          Your abstract goes here. Describe the research question, methods, and main findings
+          in a few concise paragraphs.
+        </p>
+      </details>
+    </div>
+
+    <!-- Paper 3 -->
+    <div class="paper">
+      <p class="paper-title"><a href="#">Paper Title Here</a></p>
+      <p class="paper-coauthors">(with <a href="#">Coauthor Name</a>)</p>
+      <details class="paper-abstract">
+        <summary>Abstract</summary>
+        <p>
+          Your abstract goes here. Describe the research question, methods, and main findings
+          in a few concise paragraphs.
+        </p>
+      </details>
+      <div class="paper-links">
+        <a href="#">Data and Code</a>
+      </div>
+    </div>
+
+  </section>
+
+  <hr>
+
+  <!-- ═══ PUBLICATIONS ═══ -->
+  <section id="publications">
+    <h2 class="section-title">Publications</h2>
+
+    <!-- Publication 1 -->
+    <div class="paper">
+      <p class="paper-title"><a href="#">Publication Title</a></p>
+      <p class="paper-coauthors">(with <a href="#">Coauthor Name</a>)</p>
+      <p class="paper-venue"><em>Journal Name</em>, Year</p>
+      <details class="paper-abstract">
+        <summary>Abstract</summary>
+        <p>
+          Your abstract goes here. Describe the research question, methods, and main findings.
+        </p>
+      </details>
+      <div class="paper-links">
+        <a href="#">Ungated Preprint</a>
+        <a href="#">Data and Code</a>
+      </div>
+      <p class="paper-awards">Awards: Award Name, Year.</p>
+    </div>
+
+    <!-- Publication 2 -->
+    <div class="paper">
+      <p class="paper-title"><a href="#">Publication Title</a></p>
+      <p class="paper-venue"><em>Journal Name</em>, Year</p>
+      <details class="paper-abstract">
+        <summary>Abstract</summary>
+        <p>
+          Your abstract goes here. Describe the research question, methods, and main findings.
+        </p>
+      </details>
+      <div class="paper-links">
+        <a href="#">Data and Code</a>
+      </div>
+    </div>
+
+    <!-- Publication 3 -->
+    <div class="paper">
+      <p class="paper-title"><a href="#">Publication Title</a></p>
+      <p class="paper-coauthors">(with <a href="#">Coauthor Name</a>)</p>
+      <p class="paper-venue"><em>Journal Name</em>, Year</p>
+      <details class="paper-abstract">
+        <summary>Abstract</summary>
+        <p>
+          Your abstract goes here.
+        </p>
+      </details>
+      <div class="paper-links">
+        <a href="#">Ungated Preprint</a>
+        <a href="#">Data and Code</a>
+      </div>
+      <p class="paper-awards">Awards: Award Name (Association, Year).</p>
+    </div>
+
+    <!-- Add more publications following the same pattern above -->
+
+  </section>
+
+  <hr>
+
+  <!-- ═══ DATA & CODE ═══ -->
+  <section id="data">
+    <h2 class="section-title">Data and Code</h2>
+    <div class="prose">
+      <p>
+        I prioritize research transparency and have included links to code and data for
+        published projects above. Exceptions are for proprietary or restricted-use data;
+        in those cases I include all build and analysis code so researchers with data
+        access can build on the work.
+      </p>
+      <p>
+        Several projects have involved developing novel data sources. I flag them here
+        in hopes other researchers will find them useful:
+      </p>
+      <p>
+        The <a href="#">Dataset Name</a> includes [description of what the data contain
+        and their time span].
+      </p>
+      <p>
+        A <a href="#">guide and code for [method]</a>, developed with [Coauthor],
+        documents decisions we made that are rarely reported in published studies.
+      </p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ═══ RESEARCH ASSISTANCE ═══ -->
+  <section id="raships">
+    <h2 class="section-title">Research Assistance</h2>
+    <div class="prose">
+      <p>
+        I advise doctoral students in [program name] and have collaborated with PhD students
+        at [institutions]. I also have periodic need for part-time and full-time pre-doctoral
+        research assistants and postdoctoral researchers.
+      </p>
+      <p>
+        If you are interested in [research area], email me and we can explore whether
+        there is a project to collaborate on.
+      </p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <p>Website design adapted from <a href="https://www.nathanwilmers.com">nathanwilmers.com</a>.</p>
+  </footer>
+
+</div>
 </body>
 </html>
