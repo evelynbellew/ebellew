@@ -162,8 +162,35 @@
     }
     .presentation-line .paper-title {
       font-size: inherit;
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    /* ── Single-line writing entries ── */
+    .writing-line {
+      font-size: 0.93rem;
+      margin-bottom: 0.6rem;
+    }
+    .writing-line .paper-title {
+      font-size: inherit;
       font-weight: bold;
       margin-bottom: 0;
+    }
+    .writing-line .paper-title a {
+      color: inherit;
+    }
+    .writing-line .paper-coauthors {
+      font-size: inherit;
+      font-style: italic;
+      color: var(--color-muted);
+      margin-bottom: 0;
+    }
+    .writing-line .paper-coauthors a {
+      color: inherit;
+      text-decoration: none;
+      pointer-events: none;
+      cursor: default;
     }
 
     .paper-title {
@@ -342,47 +369,19 @@
     <section id="other-writing">
       <h2 class="section-title">Other Writing</h2>
 
-      <div class="paper">
-        <p class="paper-title"><a href="https://shift.hks.harvard.edu/low-pay-less-predictability-fast-food-jobs-in-california/">Low Pay, Less Predictability: Fast Food Jobs in California</a></p>
-        <p class="paper-coauthors">(with <a href="#">Kristen Harknett</a> and <a href="#">Daniel Schneider</a>)</p>
-        <p class="paper-venue">The Shift Project Research Brief, 2022</p>
-      </div>
+      <p class="writing-line"><span class="paper-title"><a href="https://shift.hks.harvard.edu/low-pay-less-predictability-fast-food-jobs-in-california/">Low Pay, Less Predictability: Fast Food Jobs in California</a></span> — with <span class="paper-coauthors">Kristen Harknett and Daniel Schneider</span>, The Shift Project Research Brief, 2022</p>
 
-      <div class="paper">
-        <p class="paper-title"><a href="https://shift.hks.harvard.edu/tax-filing-in-the-service-sector/">Tax Filing in the Service Sector</a></p>
-        <p class="paper-coauthors">(with <a href="#">Annette Gailliot</a>)</p>
-        <p class="paper-venue">The Shift Project Research Brief, 2022</p>
-      </div>
+      <p class="writing-line"><span class="paper-title"><a href="https://shift.hks.harvard.edu/tax-filing-in-the-service-sector/">Tax Filing in the Service Sector</a></span> — with <span class="paper-coauthors">Annette Gailliot</span>, The Shift Project Research Brief, 2022</p>
 
-      <div class="paper">
-        <p class="paper-title"><a href="https://shift.hks.harvard.edu/working-in-the-service-sector-in-colorado-updated/">Working in the Service Sector in Colorado</a></p>
-        <p class="paper-coauthors">(with <a href="#">Daniel Schneider</a> and <a href="#">Kristen Harknett</a>)</p>
-        <p class="paper-venue">The Shift Project Research Brief, 2022</p>
-      </div>
+      <p class="writing-line"><span class="paper-title"><a href="https://shift.hks.harvard.edu/working-in-the-service-sector-in-colorado-updated/">Working in the Service Sector in Colorado</a></span> — with <span class="paper-coauthors">Daniel Schneider and Kristen Harknett</span>, The Shift Project Research Brief, 2022</p>
 
-      <div class="paper">
-        <p class="paper-title"><a href="https://shift.hks.harvard.edu/still-unstable/">Still Unstable: The Persistence of Schedule Uncertainty During the Pandemic</a></p>
-        <p class="paper-coauthors">(with <a href="#">Elaine Zundl</a>, <a href="#">Daniel Schneider</a>, and <a href="#">Kristen Harknett</a>)</p>
-        <p class="paper-venue">The Shift Project Research Brief, 2022</p>
-      </div>
+      <p class="writing-line"><span class="paper-title"><a href="https://shift.hks.harvard.edu/still-unstable/">Still Unstable: The Persistence of Schedule Uncertainty During the Pandemic</a></span> — with <span class="paper-coauthors">Elaine Zundl, Daniel Schneider, and Kristen Harknett</span>, The Shift Project Research Brief, 2022</p>
 
-      <div class="paper">
-        <p class="paper-title"><a href="https://shift.hks.harvard.edu/half-of-service-sector-workers-are-not-yet-vaccinated-for-covid-19-what-gets-in-the-way/">Half of Service Sector Workers Are Not Yet Vaccinated for COVID-19: What Gets in the Way?</a></p>
-        <p class="paper-coauthors">(with <a href="#">Annette Gailliot</a>, <a href="#">Daniel Schneider</a>, and <a href="#">Kristen Harknett</a>)</p>
-        <p class="paper-venue">The Shift Project Research Brief, 2021</p>
-      </div>
+      <p class="writing-line"><span class="paper-title"><a href="https://shift.hks.harvard.edu/half-of-service-sector-workers-are-not-yet-vaccinated-for-covid-19-what-gets-in-the-way/">Half of Service Sector Workers Are Not Yet Vaccinated for COVID-19: What Gets in the Way?</a></span> — with <span class="paper-coauthors">Annette Gailliot, Daniel Schneider, and Kristen Harknett</span>, The Shift Project Research Brief, 2021</p>
 
-      <div class="paper">
-        <p class="paper-title"><a href="https://shift.hks.harvard.edu/paid-family-and-medical-leave-in-the-u-s-service-sector/">Paid Family and Medical Leave in the U.S. Service Sector</a></p>
-        <p class="paper-coauthors">(with <a href="#">Elaine Zundl</a>, <a href="#">Daniel Schneider</a>, <a href="#">Julia Goodman</a>, and <a href="#">Kristen Harknett</a>)</p>
-        <p class="paper-venue">The Shift Project Research Brief, 2021</p>
-      </div>
+      <p class="writing-line"><span class="paper-title"><a href="https://shift.hks.harvard.edu/paid-family-and-medical-leave-in-the-u-s-service-sector/">Paid Family and Medical Leave in the U.S. Service Sector</a></span> — with <span class="paper-coauthors">Elaine Zundl, Daniel Schneider, Julia Goodman, and Kristen Harknett</span>, The Shift Project Research Brief, 2021</p>
 
-      <div class="paper">
-        <p class="paper-title"><a href="https://www.cbpp.org/sites/default/files/8-4-21tanf.pdf">TANF Policies Reflect Racist Legacy of Cash Assistance: Reimagined Program Should Center Black Mothers</a></p>
-        <p class="paper-coauthors">(with <a href="#">Ife Floyd</a> et al.)</p>
-        <p class="paper-venue">Center on Budget and Policy Priorities, 2021</p>
-      </div>
+      <p class="writing-line"><span class="paper-title"><a href="https://www.cbpp.org/sites/default/files/8-4-21tanf.pdf">TANF Policies Reflect Racist Legacy of Cash Assistance: Reimagined Program Should Center Black Mothers</a></span> — with <span class="paper-coauthors">Ife Floyd et al.</span>, Center on Budget and Policy Priorities, 2021</p>
 
     </section>
 
@@ -392,7 +391,7 @@
     <section id="presentations">
       <h2 class="section-title">Presentations</h2>
 
-      <p class="presentation-line"><span class="paper-title">Care Under Constraint: Work Intensity in U.S. Nursing Homes</span> — <a href="https://sase.org/">The Society for the Advancement of Socio-Economics (SASE)</a>, Bordeaux, France, July 2026</p>
+      <p class="presentation-line"><span class="paper-title">Care Under Constraint: Work Intensity in U.S. Nursing Homes</span> — The Society for the Advancement of Socio-Economics (SASE), Bordeaux, France, July 2026</p>
 
       <p class="presentation-line"><span class="paper-title">Workers of the Work Unite! The Diffusion of Pro-Union Sentiment</span> — American Sociological Association 2025 Annual Meeting, August 2025</p>
 
